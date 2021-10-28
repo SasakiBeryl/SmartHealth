@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "562831437062",
+    "project_id": "smarthealth-elec5620",
+    "storage_bucket": "smarthealth-elec5620.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:562831437062:android:48d50656832723c3190287",
+        "android_client_info": {
+          "package_name": "elec5620.sydney.edu.au.smarthealth"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "562831437062-pmn4sht7tlrk2e6p2rln5blsicpn13rn.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC4zxYaf5vgwN5D6dyCf_mhKsjsAvVUAeQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "562831437062-pmn4sht7tlrk2e6p2rln5blsicpn13rn.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
