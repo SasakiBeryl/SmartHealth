@@ -12,44 +12,49 @@
         tools:layout_editor_absoluteX="1dp"
         tools:layout_editor_absoluteY="1dp">
 
-        <Button
-            android:id="@+id/button_patient_login"
+        <EditText
+            android:id="@+id/edittext_patient_signup_email"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentLeft="true"
             android:layout_alignParentTop="true"
-            android:layout_marginLeft="110dp"
-            android:layout_marginTop="183dp"
-            android:text="Patient Login" />
+            android:layout_marginLeft="82dp"
+            android:layout_marginTop="116dp"
+            android:ems="10"
+            android:hint="Email"
+            android:inputType="textPersonName" />
 
-        <Button
-            android:id="@+id/button_doctor_login"
+        <EditText
+            android:id="@+id/edittext_patient_signup_phone"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_below="@+id/edittext_patient_signup_email"
             android:layout_alignParentLeft="true"
-            android:layout_alignParentTop="true"
-            android:layout_marginLeft="117dp"
-            android:layout_marginTop="292dp"
-            android:text="Doctor Login" />
+            android:layout_marginLeft="77dp"
+            android:layout_marginTop="76dp"
+            android:ems="10"
+            android:hint="Password"
+            android:inputType="textPassword" />
 
         <Button
             android:id="@+id/button_patient_confirm"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_below="@+id/edittext_patient_signup_phone"
             android:layout_alignParentLeft="true"
-            android:layout_alignParentTop="true"
-            android:layout_marginLeft="101dp"
-            android:layout_marginTop="467dp"
-            android:text="Docotr Sign up" />
+            android:layout_marginLeft="135dp"
+            android:layout_marginTop="117dp"
+            android:text="Confirm" />
 
         <Button
-            android:id="@+id/button_patient_signup"
-            android:layout_width="wrap_content"
+            android:id="@+id/button_patient_back"
+            android:layout_width="104dp"
             android:layout_height="wrap_content"
+            android:layout_below="@+id/edittext_patient_signup_phone"
             android:layout_alignParentLeft="true"
-            android:layout_alignParentTop="true"
-            android:layout_marginLeft="102dp"
-            android:layout_marginTop="376dp"
-            android:text="Patient Sign up" />
+            android:layout_marginLeft="134dp"
+            android:layout_marginTop="206dp"
+            android:text="Back" />
+
     </RelativeLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
