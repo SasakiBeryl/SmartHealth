@@ -3,15 +3,20 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Github/SmartHealth/app/src/main/res/layout/activity_chat_bot.xml" value="0.1574074074074074" />
+        <entry key="..\:/Github/SmartHealth/app/src/main/res/layout/activity_doctor_main.xml" value="0.1574074074074074" />
         <entry key="..\:/Github/SmartHealth/app/src/main/res/layout/activity_doctor_sign_in.xml" value="0.16033434650455927" />
-        <entry key="..\:/Github/SmartHealth/app/src/main/res/layout/activity_doctor_sign_up.xml" value="0.16033434650455927" />
+        <entry key="..\:/Github/SmartHealth/app/src/main/res/layout/activity_doctor_sign_up.xml" value="0.5" />
         <entry key="..\:/Github/SmartHealth/app/src/main/res/layout/activity_main.xml" value="0.16033434650455927" />
         <entry key="..\:/Github/SmartHealth/app/src/main/res/layout/activity_patient_main.xml" value="0.16033434650455927" />
         <entry key="..\:/Github/SmartHealth/app/src/main/res/layout/activity_patient_sign_in.xml" value="0.16033434650455927" />
-        <entry key="..\:/Github/SmartHealth/app/src/main/res/layout/activity_patient_sign_up.xml" value="0.16033434650455927" />
+        <entry key="..\:/Github/SmartHealth/app/src/main/res/layout/activity_patient_sign_up.xml" value="0.33" />
         <entry key="..\:/Github/SmartHealth/app/src/main/res/layout/activity_patientmain.xml" value="0.16033434650455927" />
-        <entry key="..\:/Github/SmartHealth/app/src/main/res/layout/activity_view_doctor_recommend.xml" value="0.1661600810536981" />
+        <entry key="..\:/Github/SmartHealth/app/src/main/res/layout/activity_view_doctor_recommend.xml" value="0.5" />
+        <entry key="..\:/Github/SmartHealth/app/src/main/res/layout/bot_msg.xml" value="0.5" />
         <entry key="..\:/Github/SmartHealth/app/src/main/res/layout/recm_doctor_adapter.xml" value="0.16033434650455927" />
+        <entry key="..\:/Github/SmartHealth/app/src/main/res/layout/test.xml" value="0.4624094202898551" />
+        <entry key="..\:/Github/SmartHealth/app/src/main/res/layout/user_msg.xml" value="0.40942028985507245" />
         <entry key="..\:/SmartHealth/app/src/main/res/layout/activity_main.xml" value="0.13451086956521738" />
       </map>
     </option>

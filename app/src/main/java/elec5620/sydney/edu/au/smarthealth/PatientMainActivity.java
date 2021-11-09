@@ -34,7 +34,10 @@ public class PatientMainActivity extends AppCompatActivity {
 
     EditText textDescrEditText;
     Button getRecommendButton;
+    Button buttonChatBot;
     String situation = "";
+    String gender="";
+    String age = "";
     //String serPatient;
     //FirebaseUser currentPatient;
     ArrayList<Symptom> symptoms = new ArrayList<>();
@@ -56,14 +59,28 @@ public class PatientMainActivity extends AppCompatActivity {
 
         mAuth = FirebaseAuth.getInstance();
 
+        gender= getIntent().getStringExtra("gender");
+        age = getIntent().getStringExtra("age");
+
         textDescrEditText = findViewById(R.id.edittext_patient_signup_password);
         getRecommendButton = findViewById(R.id.button_patient_login);
+        buttonChatBot=findViewById(R.id.button_chatbot);
+        buttonChatBot.setOnClickListener(this::onChatbotClick);
         String jsonString = " ";
         getRecommendButton.setOnClickListener(this::onGetRecommendClick);
 
         Log.i("fangpei", "111");
 
 
+    }
+
+    public void onChatbotClick(View view)
+    {
+        Intent intent = new Intent(PatientMainActivity.this, ChatBotActivity.class);
+        intent.putExtra("gender",gender);
+        intent.putExtra("age", age);
+        finish();
+        viewRecommendLaucher.launch(intent);
     }
 
 
@@ -79,7 +96,7 @@ public class PatientMainActivity extends AppCompatActivity {
             } catch (JSONException e) {
                 e.printStackTrace();
             }
-            Tools.getResponse(obj, this, new VolleyCallback()
+            Tools.getNLPSymptoms(obj, this, new VolleyCallback()
             {
                 @Override
                 public void onSuccess(String result) {
@@ -126,53 +143,5 @@ public class PatientMainActivity extends AppCompatActivity {
 
     }
 
-
-    private void getResponse(JSONObject obj){
-        String URL = "https://api.infermedica.com/v2/parse";
-        RequestQueue queue = Volley.newRequestQueue(this);
-        StringRequest request = new StringRequest(Request.Method.POST, URL,
-                new Response.Listener<String>() {
-                    @Override
-                    public void onResponse(String response) {
-//                        Mentions mentions = new GsonBuilder().create().fromJson(response, Mentions.class);
-                        JSONObject json = new JSONObject();
-                        try {
-                            json = new JSONObject(response);
-                        } catch (JSONException e) {
-                            e.printStackTrace();
-                        }
-                        Log.e("Check Response",json.toString());
-                    }
-                },
-                new Response.ErrorListener() {
-                    @Override
-                    public void onErrorResponse(VolleyError error) {
-                        Log.e("Check Error","Error");
-                    }
-                }
-        ){
-            @Override
-            public byte[] getBody() throws AuthFailureError {
-                String my_json = obj.toString();
-                return my_json.getBytes();
-
-            }
-
-            @Override
-            public Map<String, String> getHeaders() throws AuthFailureError {
-                Map<String,String> map = new HashMap<>();
-                map.put("Content-Type","application/json");
-                map.put("Accept", "application/json");
-                map.put("app_id","90f10c6a");
-                map.put("app_key","9d23d9250d9f2ee8aa49efda732e4d3d");
-//                map.put("sex", "male");
-//                map.put("age", "21");
-                map.put("text", "i feel smoach pain but no couoghing today");
-                return map;
-            }
-        };
-        request.setRetryPolicy(new DefaultRetryPolicy(15000, DefaultRetryPolicy.DEFAULT_MAX_RETRIES, DefaultRetryPolicy.DEFAULT_MAX_RETRIES));
-        queue.add(request);
-    }
 
 }

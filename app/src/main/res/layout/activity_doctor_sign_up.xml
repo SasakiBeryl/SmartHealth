@@ -12,17 +12,8 @@
         tools:layout_editor_absoluteX="1dp"
         tools:layout_editor_absoluteY="1dp">
 
-        <EditText
-            android:id="@+id/edittext_doctor_signup_email"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentTop="true"
-            android:layout_marginLeft="95dp"
-            android:layout_marginTop="16dp"
-            android:ems="10"
-            android:hint="Email"
-            android:inputType="textPersonName" />
+
+
 
         <EditText
             android:id="@+id/edittext_doctor_signup_phone"
@@ -36,6 +27,12 @@
             android:hint="Phone Number"
             android:inputType="textPersonName" />
 
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_alignBottom="@+id/edittext_doctor_signup_phone"
+            android:background="@color/black" />
+
         <EditText
             android:id="@+id/edittext_doctor_signup_password"
             android:layout_width="wrap_content"
@@ -47,6 +44,11 @@
             android:ems="10"
             android:hint="Password"
             android:inputType="textPersonName" />
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_alignBottom="@+id/edittext_doctor_signup_password"
+            android:background="@color/black" />
 
         <EditText
             android:id="@+id/edittext_doctor_first_name"
@@ -59,6 +61,11 @@
             android:ems="10"
             android:hint="First Name"
             android:inputType="textPersonName" />
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_alignBottom="@+id/edittext_doctor_first_name"
+            android:background="@color/black" />
 
         <EditText
             android:id="@+id/edittext_doctor_last_name"
@@ -71,6 +78,11 @@
             android:ems="10"
             android:hint="Last Name"
             android:inputType="textPersonName" />
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_alignBottom="@+id/edittext_doctor_last_name"
+            android:background="@color/black" />
 
         <EditText
             android:id="@+id/edittext_doctor_address"
@@ -83,24 +95,36 @@
             android:ems="10"
             android:hint="Address"
             android:inputType="textPersonName" />
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_alignBottom="@+id/edittext_doctor_address"
+            android:background="@color/black" />
 
-        <EditText
-            android:id="@+id/edittext_doctor_signup_spec"
+
+        <TextView
+            android:id="@+id/edittext_doctor_signup_prof"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentLeft="true"
             android:layout_alignParentTop="true"
-            android:layout_marginLeft="87dp"
-            android:layout_marginTop="404dp"
+            android:layout_marginLeft="89dp"
+            android:layout_marginTop="409dp"
             android:ems="10"
-            android:hint="Specialization"
-            android:inputType="textPersonName" />
+            android:hint="Medical Profession"
+            android:textSize="17dp" />
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_alignBottom="@+id/edittext_doctor_signup_prof"
+            android:background="@color/black" />
+
 
         <Button
             android:id="@+id/button_doctor_confirm"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/edittext_doctor_signup_spec"
+            android:layout_below="@+id/edittext_doctor_signup_prof"
             android:layout_alignParentLeft="true"
             android:layout_marginLeft="102dp"
             android:layout_marginTop="43dp"
@@ -110,7 +134,7 @@
             android:id="@+id/button_doctor_signup_back"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/edittext_doctor_signup_spec"
+            android:layout_below="@+id/edittext_doctor_signup_prof"
             android:layout_alignParentLeft="true"
             android:layout_marginLeft="143dp"
             android:layout_marginTop="104dp"

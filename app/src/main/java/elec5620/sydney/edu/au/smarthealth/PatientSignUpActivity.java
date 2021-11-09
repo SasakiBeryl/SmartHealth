@@ -33,6 +33,9 @@ public class PatientSignUpActivity extends AppCompatActivity {
     EditText editTextFirstName;
     EditText editTextLastName;
     EditText editTextPhoneNumber;
+    EditText editTextPatientGender;
+    EditText editTextPatientAge;
+
     Button buttonDoctorCreatAccount;
 
     String email;
@@ -40,6 +43,8 @@ public class PatientSignUpActivity extends AppCompatActivity {
     String password;
     String firstName;
     String lastName;
+    String gender;
+    String age;
 
     FirebaseFirestore db;
     private FirebaseAuth mAuth;
@@ -65,6 +70,8 @@ public class PatientSignUpActivity extends AppCompatActivity {
         editTextPatientPassword = findViewById(R.id.edittext_patient_signup_password);
         editTextFirstName = findViewById(R.id.edittext_patient_first_name);
         editTextLastName = findViewById(R.id.edittext_patient_last_name);
+        editTextPatientGender = findViewById(R.id.edittext_patient_gender);
+        editTextPatientAge = findViewById(R.id.edittext_patient_age);
 
         buttonDoctorCreatAccount = findViewById(R.id.button_patient_confirm);
         buttonDoctorCreatAccount.setOnClickListener(this::onDoctorCreateClick);
@@ -88,6 +95,8 @@ public class PatientSignUpActivity extends AppCompatActivity {
         password = editTextPatientPassword.getText().toString();
         firstName = editTextFirstName.getText().toString();
         lastName = editTextLastName.getText().toString();
+        gender = editTextPatientGender.getText().toString();
+        age = editTextPatientAge.getText().toString();
 
         mAuth.createUserWithEmailAndPassword(email, password)
                 .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
@@ -104,10 +113,12 @@ public class PatientSignUpActivity extends AppCompatActivity {
                             patient.put("phone_number",phoneNumber);
                             patient.put("first_name", firstName);
                             patient.put("last_name", lastName);
+                            patient.put("gender", gender);
+                            patient.put("age", age);
 
 
 // Add a new document with a generated ID
-                            db.collection("patient")
+                            db.collection("patients")
                                     .add(patient)
                                     .addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
                                         @Override

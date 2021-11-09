@@ -1,11 +1,17 @@
 package elec5620.sydney.edu.au.smarthealth;
 
+import androidx.activity.result.ActivityResultLauncher;
+import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -24,59 +30,45 @@ import java.util.Locale;
 
 
 public class ViewDoctorRecommendActivity extends AppCompatActivity {
-    TextView symptomTextView;
-    String serSymptoms;
+    TextView diseaseTextView;
     ListView listViewDoctor;
-    ArrayList<Symptom> symptoms = new ArrayList<>();
     ArrayList<Doctor> doctors;
     ArrayAdapter<Doctor> adaptorDcotor;
     FirebaseFirestore db;
+
+    Button buttonBack;
+
+    String diseaseName = "";
+    String professionName = "";
+    String gender="";
+    String age = "";
+
+    ActivityResultLauncher<Intent> mLaucher = registerForActivityResult(
+            new ActivityResultContracts.StartActivityForResult(),
+            result -> {
+                if (result.getResultCode() == RESULT_OK ){
+
+                }
+            }
+    );
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_view_doctor_recommend);
+
         // Access a Cloud Firestore instance from your Activity
-
         db = FirebaseFirestore.getInstance();
-
         listViewDoctor = findViewById(R.id.lisview_doctor);
+        buttonBack = findViewById(R.id.view_recm_back);
+        buttonBack.setOnClickListener(this::onBackClick);
 
-        serSymptoms = getIntent().getStringExtra("symptoms");
-        symptomTextView = findViewById(R.id.textview_symptom);
-        //symptomTextView.setText();
-        JSONObject json = new JSONObject();
-        try {
-            json = new JSONObject(serSymptoms);
-        } catch (JSONException e) {
-            e.printStackTrace();
-        }
-        try {
-            JSONArray jsonArray = json.getJSONArray("mentions");
+        diseaseName = getIntent().getStringExtra("disease");
+        professionName = getIntent().getStringExtra("recommended_profession");
+        gender = getIntent().getStringExtra("gender");
+        age = getIntent().getStringExtra("age");
+        diseaseTextView = findViewById(R.id.textview_disease);
 
-            //HashMap<String, String> symptom = new HashMap<>();
-
-            for (int i=0; i< jsonArray.length();i++)
-            {
-                Symptom symptom = new Symptom();
-                String id = jsonArray.getJSONObject(i).getString("id");
-                String orth = jsonArray.getJSONObject(i).getString("orth");
-                String choice_id = jsonArray.getJSONObject(i).getString("choice_id");
-                String name = jsonArray.getJSONObject(i).getString("name");
-                String common_name = jsonArray.getJSONObject(i).getString("common_name");
-                String type = jsonArray.getJSONObject(i).getString("type");
-                symptom.setId(id);
-                symptom.setOrth(orth);
-                symptom.setChoid_id(choice_id);
-                symptom.setName(name);
-                symptom.setCommon_name(common_name);
-                symptom.setType(type);
-                symptoms.add(symptom);
-            }
-        } catch (JSONException e) {
-            e.printStackTrace();
-        }
-
-        symptomTextView.setText("Your sympotoms are: "+symptoms.get(0).name);
+        diseaseTextView.setText("You may got: "+diseaseName);
 
 
         listViewDoctor = findViewById(R.id.lisview_doctor);
@@ -88,6 +80,7 @@ public class ViewDoctorRecommendActivity extends AppCompatActivity {
                 listViewDoctor.setAdapter(adaptorDcotor);
             }
         });
+        setupListViewListener();
         //db = ToDoTaskDB.getDatabase(getActivity().getApplication().getApplicationContext());
         //toDoTaskDao = db.toDoTaskDao();
         //readTasksFromDatabase(tasks);
@@ -100,10 +93,40 @@ public class ViewDoctorRecommendActivity extends AppCompatActivity {
         //setUpListViewLisener();
     }
 
+    private void onBackClick(View view)
+    {
+        Intent intent = new Intent(ViewDoctorRecommendActivity.this, PatientMainActivity.class);
+        intent.putExtra("gender", gender);
+        intent.putExtra("age",age);
+        mLaucher.launch(intent);
+    }
+
+    private void setupListViewListener() {
+        listViewDoctor.setOnItemClickListener((parent, view, position, id) -> {
+            AlertDialog.Builder normalDialog = new AlertDialog.Builder(this);
+            Doctor item = doctors.get(position);
+            String firstName = item.getFirstName();
+            String lastName = item.getLastName();
+            String email = item.getEmail();
+            String addres = item.getAddress();
+            String medProfession = item.getSpecialization();
+            String phoneNumber = item.getPhoneNumber();
+            String eventContent = "Name: " + firstName + " " +lastName+ "\n"
+                    + "Profession: "+ medProfession +"\n"
+                    + "Email: " + email +"\n"
+                    + "Phone: " + phoneNumber + "\n"
+                    + "Address: " + addres;
+            normalDialog.setTitle("Specialist Info");
+            normalDialog.setMessage(eventContent);
+            normalDialog.setPositiveButton("OK", (dialog, which) -> {});
+            normalDialog.show();
+        });
+    }
+
     public ArrayList<Doctor> getDoctors(final VolleyCallBackDoctor callback)
     {
         ArrayList<Doctor> doctors = new ArrayList<>();
-        db.collection("doctors")
+        db.collection("specialists")
                 .get()
                 .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
                     @Override
@@ -114,19 +137,20 @@ public class ViewDoctorRecommendActivity extends AppCompatActivity {
                             {
                                 //Log.d("fangpei", "85");
                                 //Log.d("fangpei", document.getId() + " => " + document.getData().get("name"));
-                                String spec = document.getData().get("specialization").toString().toLowerCase(Locale.ROOT);
-                                String patientSymptom = symptoms.get(0).name.toLowerCase(Locale.ROOT).split(", ")[0];
+                                String profession = document.getData().get("profession").toString();
+                                //String patientSymptom = symptoms.get(0).name.toLowerCase(Locale.ROOT).split(", ")[0];
                                 String doctorFirstName = document.getData().get("first_name").toString();
                                 String doctorLastName = document.getData().get("last_name").toString();
                                 String phoneNumber = document.getData().get("phone_number").toString();
                                 String address = document.getData().get("address").toString();
+                                String email = document.getData().get("email").toString();
 
-                                boolean contain = spec.contains(patientSymptom);
+                                boolean contain = profession.toLowerCase(Locale.ROOT).contains(professionName.toLowerCase(Locale.ROOT));
                                 //Log.i("checkbug", "spec: "+spec+" Patient's symp: "+patientSymptom);
                                 //Log.i("checkbug", String.valueOf(contain));
                                 if (contain==true)
                                 {
-                                    Doctor doctor = new Doctor(doctorFirstName, doctorLastName, spec, address,phoneNumber);
+                                    Doctor doctor = new Doctor(doctorFirstName, doctorLastName, profession, address,phoneNumber, email);
                                     doctors.add(doctor);
                                 }
 

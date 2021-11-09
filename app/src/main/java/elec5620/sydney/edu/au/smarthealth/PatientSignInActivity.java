@@ -18,6 +18,12 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.QueryDocumentSnapshot;
+import com.google.firebase.firestore.QuerySnapshot;
+
+import java.util.ArrayList;
+import java.util.Locale;
 
 
 public class PatientSignInActivity extends AppCompatActivity {
@@ -28,6 +34,9 @@ public class PatientSignInActivity extends AppCompatActivity {
     Button buttonBack;
     String email;
     String password;
+    String gender;
+    String age;
+    FirebaseFirestore db;
     ActivityResultLauncher<Intent> patientMainLaucher = registerForActivityResult(
             new ActivityResultContracts.StartActivityForResult(),
             result -> {
@@ -40,6 +49,7 @@ public class PatientSignInActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_patient_sign_in);
+        db = FirebaseFirestore.getInstance();
         mAuth = FirebaseAuth.getInstance();
         editTextEmail = findViewById(R.id.edittext_patient_signup_email);
         editTextPassword = findViewById(R.id.edittext_patient_signup_phone);
@@ -86,11 +96,43 @@ public class PatientSignInActivity extends AppCompatActivity {
 
     private void updateUI(FirebaseUser user)
     {
+        ArrayList<Doctor> doctors = new ArrayList<>();
+        db.collection("patients")
+                .get()
+                .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+                    @Override
+                    public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                        if (task.isSuccessful())
+                        {
+                            for (QueryDocumentSnapshot document : task.getResult())
+                            {
+                                //Log.d("fangpei", "85");
+                                //Log.d("fangpei", document.getId() + " => " + document.getData().get("name"));
+                                String userEmail = document.getData().get("email").toString();
 
-        Intent intent = new Intent(PatientSignInActivity.this, PatientMainActivity.class);
-        //String ser_patient = Tools.firebaseUserToString(user);
-        //intent.putExtra("patient_firebase", ser_patient);
-        finish();
-        patientMainLaucher.launch(intent);
+
+                                if (userEmail.equals(email))
+                                {
+                                    gender = document.getData().get("gender").toString();
+                                    age = document.getData().get("age").toString();
+                                    break;
+                                }
+
+
+                            }
+                            Intent intent = new Intent(PatientSignInActivity.this, PatientMainActivity.class);
+                            //String ser_patient = Tools.firebaseUserToString(user);
+                            intent.putExtra("gender", gender);
+                            intent.putExtra("age",age);
+                            finish();
+                            patientMainLaucher.launch(intent);
+                        } else {
+                            Log.d("fangpei", "89");
+                            Log.w("fangpei", "Error getting documents.", task.getException());
+                        }
+                    }
+                });
+
     }
+
 }

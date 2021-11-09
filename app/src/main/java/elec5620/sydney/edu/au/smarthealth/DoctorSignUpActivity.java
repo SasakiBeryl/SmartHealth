@@ -6,11 +6,13 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -22,7 +24,11 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.wx.wheelview.widget.WheelViewDialog;
 
+import org.w3c.dom.Text;
+
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -30,7 +36,8 @@ import java.util.Map;
 public class DoctorSignUpActivity extends AppCompatActivity {
     EditText editTextDoctorEmail;
     EditText editTextDoctorPassword;
-    EditText editTextDoctorSpec;
+    //EditText editTextDoctorSpec;
+    TextView editTextProfession;
     EditText editTextFirstName;
     EditText editTextLastName;
     EditText editTextPhoneNumber;
@@ -43,7 +50,11 @@ public class DoctorSignUpActivity extends AppCompatActivity {
     String password;
     String firstName;
     String lastName;
-    String spec;
+    //String spec;
+    String profession;
+    ArrayList<String> arrayListProf= new ArrayList<>();
+
+
     FirebaseFirestore db;
     private FirebaseAuth mAuth;
     ActivityResultLauncher<Intent> mLaucher = registerForActivityResult(
@@ -69,7 +80,9 @@ public class DoctorSignUpActivity extends AppCompatActivity {
         editTextDoctorPassword = findViewById(R.id.edittext_doctor_signup_password);
         editTextFirstName = findViewById(R.id.edittext_doctor_first_name);
         editTextLastName = findViewById(R.id.edittext_doctor_last_name);
-        editTextDoctorSpec = findViewById(R.id.edittext_doctor_signup_spec);
+        //editTextDoctorSpec = findViewById(R.id.edittext_doctor_signup_prof);
+        editTextProfession = findViewById(R.id.edittext_doctor_signup_prof);
+        editTextProfession.setOnClickListener(this::onProfessionClick);
         editTextAddress = findViewById(R.id.edittext_doctor_address);
 
         buttonDoctorCreatAccount = findViewById(R.id.button_doctor_confirm);
@@ -77,6 +90,36 @@ public class DoctorSignUpActivity extends AppCompatActivity {
         buttonDoctorCreatAccount.setOnClickListener(this::onDoctorCreateClick);
         // Initialize Firebase Auth
         mAuth = FirebaseAuth.getInstance();
+        String profList =
+                "Allergologist," +
+                "Angiologist," +
+                "Cardiologist," +
+                "Dentist," +
+                "Dermatologist," +
+                "Diabetologist," +
+                "Endocrinologist," +
+                "ENT doctor," +
+                "Gastroenterologist," +
+                "General Practitioner," +
+                "Gynecologist," +
+                "Hematologist," +
+                "Infectiologist," +
+                "Internal Diseases Specialist," +
+                "Nephrologist," +
+                "Neurologist," +
+                "Oncologist," +
+                "Ophthalmologist," +
+                "Pediatrician," +
+                "Psychiatrist," +
+                "Pulmonologist," +
+                "Rheumatologist," +
+                "Surgeon," +
+                "Toxicologist," +
+                "Urologist";
+        for(String s: profList.split(","))
+        {
+            arrayListProf.add(s);
+        }
 
 
     }
@@ -96,7 +139,7 @@ public class DoctorSignUpActivity extends AppCompatActivity {
         password = editTextDoctorPassword.getText().toString();
         firstName = editTextFirstName.getText().toString();
         lastName = editTextLastName.getText().toString();
-        spec = editTextDoctorSpec.getText().toString();
+        //spec = editTextDoctorSpec.getText().toString();
         address = editTextAddress.getText().toString();
 
         mAuth.createUserWithEmailAndPassword(email, password)
@@ -114,11 +157,12 @@ public class DoctorSignUpActivity extends AppCompatActivity {
                             doctor.put("phone_number",phoneNumber);
                             doctor.put("first_name", firstName);
                             doctor.put("last_name", lastName);
-                            doctor.put("specialization", spec);
+                            //doctor.put("specialization", spec);
+                            doctor.put("profession", profession);
                             doctor.put("address", address);
 
 // Add a new document with a generated ID
-                            db.collection("doctors")
+                            db.collection("specialists")
                                     .add(doctor)
                                     .addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
                                         @Override
@@ -151,6 +195,25 @@ public class DoctorSignUpActivity extends AppCompatActivity {
 
 
 
+
+    }
+
+    public void onProfessionClick(View view)
+    {
+        WheelViewDialog dialog = new WheelViewDialog(this);
+        dialog.setTitle("Professions")
+                .setItems(arrayListProf)
+                .setDialogStyle(Color.parseColor("#6699ff"))
+                .setCount(3)
+                .setLoop(true)
+                .setButtonText("Confirm")
+                .setOnDialogItemClickListener(new WheelViewDialog.OnDialogItemClickListener() {
+                    @Override
+                    public void onItemClick(int position, String s) {
+                        profession = s;
+                        editTextProfession.setText(profession);
+                    }
+                }).show();
 
     }
 

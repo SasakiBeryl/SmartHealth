@@ -10,6 +10,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MainActivity">
         <activity
+            android:name=".ChatBotActivity"
+            android:exported="true" />
+        <activity
             android:name=".PatientSignUpActivity"
             android:exported="true" />
         <activity

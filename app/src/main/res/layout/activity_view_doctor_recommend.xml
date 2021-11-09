@@ -12,8 +12,14 @@
         tools:layout_editor_absoluteX="1dp"
         tools:layout_editor_absoluteY="1dp">
 
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        tools:layout_editor_absoluteX="1dp"
+        tools:layout_editor_absoluteY="1dp">
+
         <TextView
-            android:id="@+id/textview_symptom"
+            android:id="@+id/textview_disease"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentLeft="true"
@@ -21,17 +27,38 @@
             android:layout_marginLeft="5dp"
             android:layout_marginTop="5dp"
             android:maxLines="1"
-            android:text="Your Symptom is:"
+            android:text="Your may got:"
             android:textStyle="bold" />
 
-        <ListView
-            android:id="@+id/lisview_doctor"
-            android:layout_width="match_parent"
-            android:layout_height="1144dp"
-            android:layout_alignTop="@+id/textview_symptom"
+    </RelativeLayout>
+
+
+        <RelativeLayout
+            android:layout_width="394dp"
+            android:layout_height="509dp"
             android:layout_alignParentLeft="true"
-            android:layout_marginLeft="0dp"
-            android:layout_marginTop="53dp"
-            android:layout_marginBottom="-471dp" />
+            android:layout_marginLeft="7dp"
+            android:layout_marginTop="33dp"
+            tools:layout_editor_absoluteX="1dp"
+            tools:layout_editor_absoluteY="1dp">
+
+            <ListView
+                android:id="@+id/lisview_doctor"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+            </ListView>
+
+        </RelativeLayout>
+
+        <Button
+            android:id="@+id/view_recm_back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="131dp"
+            android:layout_marginTop="559dp"
+            android:text="Back To Main" />
+
+
     </RelativeLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
