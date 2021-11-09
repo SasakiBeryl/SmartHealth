@@ -12,28 +12,6 @@
         tools:layout_editor_absoluteX="1dp"
         tools:layout_editor_absoluteY="1dp">
 
-        <EditText
-            android:id="@+id/edittext_patient_signup_password"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentTop="true"
-            android:layout_marginLeft="88dp"
-            android:layout_marginTop="260dp"
-            android:ems="10"
-            android:hint="Describe your situation"
-            android:inputType="textPersonName" />
-
-        <Button
-            android:id="@+id/button_patient_login"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentTop="true"
-            android:layout_marginLeft="83dp"
-            android:layout_marginTop="356dp"
-            android:text="Get Recommend Doctors" />
-
         <Button
             android:id="@+id/button_chatbot"
             android:layout_width="wrap_content"
