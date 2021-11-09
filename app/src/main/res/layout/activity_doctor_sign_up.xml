@@ -13,8 +13,6 @@
         tools:layout_editor_absoluteY="1dp">
 
 
-
-
         <EditText
             android:id="@+id/edittext_doctor_signup_phone"
             android:layout_width="wrap_content"
@@ -25,6 +23,18 @@
             android:layout_marginTop="79dp"
             android:ems="10"
             android:hint="Phone Number"
+            android:inputType="textPersonName" />
+
+        <EditText
+            android:id="@+id/edittext_doctor_signup_email"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginLeft="88dp"
+            android:layout_marginTop="27dp"
+            android:ems="10"
+            android:hint="Email"
             android:inputType="textPersonName" />
 
         <View

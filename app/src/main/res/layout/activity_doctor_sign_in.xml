@@ -13,7 +13,7 @@
         tools:layout_editor_absoluteY="1dp">
 
         <EditText
-            android:id="@+id/edittext_doctor_signup_email"
+            android:id="@+id/edittext_doctor_signin_email"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentLeft="true"
@@ -28,7 +28,7 @@
             android:id="@+id/edittext_doctor_signup_phone"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/edittext_doctor_signup_email"
+            android:layout_below="@+id/edittext_doctor_signin_email"
             android:layout_alignParentLeft="true"
             android:layout_marginLeft="77dp"
             android:layout_marginTop="76dp"

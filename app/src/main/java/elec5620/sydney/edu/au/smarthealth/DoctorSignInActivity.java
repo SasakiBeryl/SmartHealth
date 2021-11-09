@@ -42,7 +42,7 @@ public class DoctorSignInActivity extends AppCompatActivity {
         setContentView(R.layout.activity_doctor_sign_in);
 
         mAuth = FirebaseAuth.getInstance();
-        editTextEmail = findViewById(R.id.edittext_doctor_signup_email);
+        editTextEmail = findViewById(R.id.edittext_doctor_signin_email);
         editTextPassword = findViewById(R.id.edittext_doctor_signup_phone);
         buttonConfirm = findViewById(R.id.button_doctor_confirm);
         buttonBack = findViewById(R.id.button_doctor_back);
