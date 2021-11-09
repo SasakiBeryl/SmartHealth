@@ -98,6 +98,7 @@ public class ViewDoctorRecommendActivity extends AppCompatActivity {
         Intent intent = new Intent(ViewDoctorRecommendActivity.this, PatientMainActivity.class);
         intent.putExtra("gender", gender);
         intent.putExtra("age",age);
+        finish();
         mLaucher.launch(intent);
     }
 
