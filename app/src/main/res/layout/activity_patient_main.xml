@@ -32,10 +32,20 @@
             android:layout_marginTop="21dp"
             android:text="Add New Reminder" />
 
+        <Button
+            android:id="@+id/button4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/taskListView"
+            android:layout_alignParentStart="true"
+            android:layout_marginStart="130dp"
+            android:layout_marginTop="147dp"
+            android:text="upload image" />
+
         <ListView
             android:id="@+id/taskListView"
             android:layout_width="match_parent"
-            android:layout_height="472dp"
+            android:layout_height="450dp"
             android:layout_alignParentLeft="true"
             android:layout_alignParentTop="true" />
 
