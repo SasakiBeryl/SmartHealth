@@ -1,4 +1,9 @@
 package elec5620.sydney.edu.au.smarthealth;
+/*
+The code below is modiefied base on
+the android chatbot tutorial on:
+https://www.geeksforgeeks.org/how-to-create-a-chatbot-in-android-with-brainshop-api/
+ */
 public class MessageModal {
 
     // string to store our message and sender

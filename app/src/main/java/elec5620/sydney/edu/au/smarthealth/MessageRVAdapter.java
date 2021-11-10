@@ -10,6 +10,11 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
+/*
+The code below is modified based on
+the android chat bot turorial on:
+https://www.geeksforgeeks.org/how-to-create-a-chatbot-in-android-with-brainshop-api/
+ */
 
 public class MessageRVAdapter extends RecyclerView.Adapter {
 

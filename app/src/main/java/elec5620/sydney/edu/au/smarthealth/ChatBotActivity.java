@@ -33,6 +33,11 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Locale;
 import java.util.Map;
+/*
+Part of code below is modified based on the tutorial
+on :
+https://www.geeksforgeeks.org/how-to-create-a-chatbot-in-android-with-brainshop-api/
+ */
 
 public class ChatBotActivity extends AppCompatActivity {
 
