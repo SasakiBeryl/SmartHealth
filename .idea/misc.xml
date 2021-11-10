@@ -8,12 +8,14 @@
         <entry key="..\:/Github/SmartHealth/app/src/main/res/layout/activity_doctor_sign_in.xml" value="0.16033434650455927" />
         <entry key="..\:/Github/SmartHealth/app/src/main/res/layout/activity_doctor_sign_up.xml" value="0.5" />
         <entry key="..\:/Github/SmartHealth/app/src/main/res/layout/activity_main.xml" value="0.16033434650455927" />
-        <entry key="..\:/Github/SmartHealth/app/src/main/res/layout/activity_patient_main.xml" value="0.5" />
+        <entry key="..\:/Github/SmartHealth/app/src/main/res/layout/activity_patient_main.xml" value="0.33" />
         <entry key="..\:/Github/SmartHealth/app/src/main/res/layout/activity_patient_sign_in.xml" value="0.16033434650455927" />
         <entry key="..\:/Github/SmartHealth/app/src/main/res/layout/activity_patient_sign_up.xml" value="0.33" />
         <entry key="..\:/Github/SmartHealth/app/src/main/res/layout/activity_patientmain.xml" value="0.16033434650455927" />
+        <entry key="..\:/Github/SmartHealth/app/src/main/res/layout/activity_task_edit.xml" value="0.2672239108409321" />
         <entry key="..\:/Github/SmartHealth/app/src/main/res/layout/activity_view_doctor_recommend.xml" value="0.5" />
         <entry key="..\:/Github/SmartHealth/app/src/main/res/layout/bot_msg.xml" value="0.5" />
+        <entry key="..\:/Github/SmartHealth/app/src/main/res/layout/custom_listview.xml" value="0.2672239108409321" />
         <entry key="..\:/Github/SmartHealth/app/src/main/res/layout/recm_doctor_adapter.xml" value="0.16033434650455927" />
         <entry key="..\:/Github/SmartHealth/app/src/main/res/layout/test.xml" value="0.4624094202898551" />
         <entry key="..\:/Github/SmartHealth/app/src/main/res/layout/user_msg.xml" value="0.40942028985507245" />
