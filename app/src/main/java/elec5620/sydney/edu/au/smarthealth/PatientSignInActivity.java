@@ -37,6 +37,7 @@ public class PatientSignInActivity extends AppCompatActivity {
     String gender;
     String age;
     FirebaseFirestore db;
+    private boolean EMAIL_CHECK=false;
     ActivityResultLauncher<Intent> patientMainLaucher = registerForActivityResult(
             new ActivityResultContracts.StartActivityForResult(),
             result -> {
@@ -72,14 +73,44 @@ public class PatientSignInActivity extends AppCompatActivity {
     {
         email = editTextEmail.getText().toString();
         password = editTextPassword.getText().toString();
+        db.collection("patients")
+                .get()
+                .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+                    @Override
+                    public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                        if (task.isSuccessful())
+                        {
+                            for (QueryDocumentSnapshot document : task.getResult())
+                            {
+                                //Log.d("fangpei", "85");
+                                //Log.d("fangpei", document.getId() + " => " + document.getData().get("name"));
+                                String userEmail = document.getData().get("email").toString();
+
+
+                                if (userEmail.equals(email))
+                                {
+                                    EMAIL_CHECK = true;
+                                    break;
+                                }
+
+
+                            }
+                        } else {
+                            Log.d("fangpei", "89");
+                            Log.w("fangpei", "Error getting documents.", task.getException());
+                        }
+                    }
+                });
+
         mAuth.signInWithEmailAndPassword(email, password)
                 .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
-                        if (task.isSuccessful()) {
+                        if (task.isSuccessful() && EMAIL_CHECK==true) {
                             // Sign in success, update UI with the signed-in user's information
                             Log.d("fangpei", "signInWithEmail:success");
                             FirebaseUser user = mAuth.getCurrentUser();
+
                             updateUI(user);
                         } else {
                             // If sign in fails, display a message to the user.
@@ -96,7 +127,6 @@ public class PatientSignInActivity extends AppCompatActivity {
 
     private void updateUI(FirebaseUser user)
     {
-        ArrayList<Doctor> doctors = new ArrayList<>();
         db.collection("patients")
                 .get()
                 .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
