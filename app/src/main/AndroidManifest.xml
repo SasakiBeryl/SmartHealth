@@ -10,9 +10,6 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MainActivity">
         <activity
-            android:name=".ChatBotActivity"
-            android:exported="true" />
-        <activity
             android:name=".PatientSignUpActivity"
             android:exported="true" />
         <activity
@@ -42,6 +39,13 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+
+        <activity android:name=".DoctorTipsActivity"
+            android:exported="true" ></activity>
+        <activity android:name=".DoctorViewActivity"
+            android:exported="true" ></activity>
+
     </application>
 
     <uses-permission android:name="android.permission.INTERNET" />
