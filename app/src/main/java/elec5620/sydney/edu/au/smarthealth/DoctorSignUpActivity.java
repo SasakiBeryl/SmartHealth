@@ -41,7 +41,7 @@ public class DoctorSignUpActivity extends AppCompatActivity {
     EditText editTextPhoneNumber;
     EditText editTextAddress;
     Button buttonDoctorCreatAccount;
-    Button buttonCreateDoctor;
+    Button buttonBack;
     String email;
     String address;
     String phoneNumber;
@@ -82,6 +82,8 @@ public class DoctorSignUpActivity extends AppCompatActivity {
         editTextProfession = findViewById(R.id.edittext_doctor_signup_prof);
         editTextProfession.setOnClickListener(this::onProfessionClick);
         editTextAddress = findViewById(R.id.edittext_doctor_address);
+        buttonBack = findViewById(R.id.button_doctor_signup_back);
+        buttonBack.setOnClickListener(this::onBackClick);
 
         buttonDoctorCreatAccount = findViewById(R.id.button_doctor_confirm);
 
@@ -213,6 +215,13 @@ public class DoctorSignUpActivity extends AppCompatActivity {
                     }
                 }).show();
 
+    }
+
+    public void onBackClick(View view)
+    {
+        Intent intent = new Intent(DoctorSignUpActivity.this,MainActivity.class);
+        finish();
+        mLaucher.launch(intent);
     }
 
 
