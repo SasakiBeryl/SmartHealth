@@ -30,7 +30,7 @@
             android:layout_height="wrap_content"
             android:layout_below="@+id/edittext_doctor_signin_email"
             android:layout_alignParentLeft="true"
-            android:layout_marginLeft="77dp"
+            android:layout_marginLeft="82dp"
             android:layout_marginTop="76dp"
             android:ems="10"
             android:hint="Password"
