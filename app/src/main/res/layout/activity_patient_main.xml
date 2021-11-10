@@ -18,8 +18,8 @@
             android:layout_height="wrap_content"
             android:layout_below="@+id/addNew"
             android:layout_alignParentLeft="true"
-            android:layout_marginLeft="125dp"
-            android:layout_marginTop="20dp"
+            android:layout_marginLeft="128dp"
+            android:layout_marginTop="26dp"
             android:text="Chat with bot" />
 
         <Button
@@ -38,14 +38,14 @@
             android:layout_height="wrap_content"
             android:layout_below="@+id/taskListView"
             android:layout_alignParentStart="true"
-            android:layout_marginStart="130dp"
-            android:layout_marginTop="147dp"
+            android:layout_marginStart="131dp"
+            android:layout_marginTop="160dp"
             android:text="upload image" />
 
         <ListView
             android:id="@+id/taskListView"
             android:layout_width="match_parent"
-            android:layout_height="450dp"
+            android:layout_height="400dp"
             android:layout_alignParentLeft="true"
             android:layout_alignParentTop="true" />
 

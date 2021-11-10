@@ -12,17 +12,17 @@
         tools:layout_editor_absoluteX="1dp"
         tools:layout_editor_absoluteY="1dp">
 
-<!--        <EditText-->
-<!--            android:id="@+id/edittext_patient_signup_password"-->
-<!--            android:layout_width="wrap_content"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:layout_alignParentLeft="true"-->
-<!--            android:layout_alignParentTop="true"-->
-<!--            android:layout_marginLeft="88dp"-->
-<!--            android:layout_marginTop="260dp"-->
-<!--            android:ems="10"-->
-<!--            android:hint="Describe your situation"-->
-<!--            android:inputType="textPersonName" />-->
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginStart="150dp"
+            android:layout_marginTop="74dp"
+            android:text="Doctor Page"
+            android:textSize="20dp"
+            android:textStyle="bold" />
 
         <Button
             android:id="@+id/button_doctor_view_list"
@@ -30,8 +30,8 @@
             android:layout_height="wrap_content"
             android:layout_alignParentLeft="true"
             android:layout_alignParentTop="true"
-            android:layout_marginLeft="122dp"
-            android:layout_marginTop="183dp"
+            android:layout_marginLeft="117dp"
+            android:layout_marginTop="304dp"
             android:text="View patient list" />
 
         <Button
@@ -40,21 +40,9 @@
             android:layout_height="wrap_content"
             android:layout_alignParentLeft="true"
             android:layout_alignParentTop="true"
-            android:layout_marginLeft="98dp"
-            android:layout_marginTop="293dp"
+            android:layout_marginLeft="89dp"
+            android:layout_marginTop="398dp"
             android:text="Provide tips to patient" />
-<!--        <ListView-->
-<!--            android:id="@+id/list11"-->
-<!--            android:layout_width="fill_parent"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:layout_alignParentLeft="true"-->
-<!--            android:layout_marginTop="65dp"-->
-<!--            android:cacheColorHint="#000000"-->
-<!--            android:focusable="false"-->
-<!--            android:listSelector="293dp"-->
-<!--            android:scrollbars="vertical"-->
-<!--            android:scrollingCache="false" >-->
-<!--        </ListView>-->
 
 
     </RelativeLayout>

@@ -18,8 +18,8 @@
             android:layout_height="wrap_content"
             android:layout_alignParentLeft="true"
             android:layout_alignParentTop="true"
-            android:layout_marginLeft="110dp"
-            android:layout_marginTop="183dp"
+            android:layout_marginLeft="130dp"
+            android:layout_marginTop="193dp"
             android:text="Patient Login" />
 
         <Button
@@ -28,8 +28,9 @@
             android:layout_height="wrap_content"
             android:layout_alignParentLeft="true"
             android:layout_alignParentTop="true"
-            android:layout_marginLeft="105dp"
-            android:layout_marginTop="292dp"
+            android:layout_marginLeft="130dp"
+            android:layout_marginTop="291dp"
+            android:shadowColor="@color/black"
             android:text="Doctor Login" />
 
         <Button
@@ -38,8 +39,8 @@
             android:layout_height="wrap_content"
             android:layout_alignParentLeft="true"
             android:layout_alignParentTop="true"
-            android:layout_marginLeft="101dp"
-            android:layout_marginTop="467dp"
+            android:layout_marginLeft="123dp"
+            android:layout_marginTop="497dp"
             android:text="Docotr Sign up" />
 
         <Button
@@ -48,8 +49,8 @@
             android:layout_height="wrap_content"
             android:layout_alignParentLeft="true"
             android:layout_alignParentTop="true"
-            android:layout_marginLeft="102dp"
-            android:layout_marginTop="376dp"
+            android:layout_marginLeft="122dp"
+            android:layout_marginTop="389dp"
             android:text="Patient Sign up" />
     </RelativeLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
