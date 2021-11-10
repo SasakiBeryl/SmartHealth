@@ -52,6 +52,7 @@ public class ChatBotActivity extends AppCompatActivity {
     private final String YES = "present";
     private final String NO = "absent";
     private final String DONTKNOW = "unknown";
+    private String email = "";
     boolean ENDFLAG = false;
     boolean FIRST_VALID_RESPONSE = false;
 
@@ -87,6 +88,7 @@ public class ChatBotActivity extends AppCompatActivity {
         Intent i = getIntent();
         gender = getIntent().getStringExtra("gender").toLowerCase(Locale.ROOT);
         age = Integer.valueOf(getIntent().getStringExtra("age"));
+        email = getIntent().getStringExtra("email");
 
         // on below line we are initializing all our views.
         chatsRV = findViewById(R.id.idRVChats);
@@ -199,6 +201,7 @@ public class ChatBotActivity extends AppCompatActivity {
                         intent.putExtra("disease",diseaseName);
                         intent.putExtra("gender", gender);
                         intent.putExtra("age", age.toString());
+                        intent.putExtra("email",email);
                         finish();
                         mLaucher.launch(intent);
 
@@ -249,6 +252,7 @@ public class ChatBotActivity extends AppCompatActivity {
             Intent intent = new Intent(ChatBotActivity.this, PatientMainActivity.class);
             intent.putExtra("gender", gender);
             intent.putExtra("age",age.toString());
+            intent.putExtra("email", email);
             finish();
             mLaucher.launch(intent);
         }

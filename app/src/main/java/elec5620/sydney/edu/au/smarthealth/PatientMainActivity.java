@@ -140,6 +140,7 @@ public class PatientMainActivity extends AppCompatActivity {
         Intent intent = new Intent(PatientMainActivity.this, ChatBotActivity.class);
         intent.putExtra("gender",gender);
         intent.putExtra("age", age);
+        intent.putExtra("email", email);
         finish();
         viewRecommendLaucher.launch(intent);
     }

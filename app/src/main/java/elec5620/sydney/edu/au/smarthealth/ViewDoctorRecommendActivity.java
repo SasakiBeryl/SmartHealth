@@ -42,6 +42,7 @@ public class ViewDoctorRecommendActivity extends AppCompatActivity {
     String professionName = "";
     String gender="";
     String age = "";
+    String email= "";
 
     ActivityResultLauncher<Intent> mLaucher = registerForActivityResult(
             new ActivityResultContracts.StartActivityForResult(),
@@ -66,6 +67,7 @@ public class ViewDoctorRecommendActivity extends AppCompatActivity {
         professionName = getIntent().getStringExtra("recommended_profession");
         gender = getIntent().getStringExtra("gender");
         age = getIntent().getStringExtra("age");
+        email = getIntent().getStringExtra("email");
         diseaseTextView = findViewById(R.id.textview_disease);
 
         diseaseTextView.setText("You may got: "+diseaseName);
@@ -98,6 +100,7 @@ public class ViewDoctorRecommendActivity extends AppCompatActivity {
         Intent intent = new Intent(ViewDoctorRecommendActivity.this, PatientMainActivity.class);
         intent.putExtra("gender", gender);
         intent.putExtra("age",age);
+        intent.putExtra("email",email);
         finish();
         mLaucher.launch(intent);
     }
