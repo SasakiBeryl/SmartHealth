@@ -49,6 +49,7 @@ public class PatientMainActivity extends AppCompatActivity {
     String situation = "";
     String gender="";
     String age = "";
+    String email="";
     ///////////////////////////
     ListView taskListView;
     ArrayAdapter<Task> taskArrayAdapter;
@@ -109,6 +110,7 @@ public class PatientMainActivity extends AppCompatActivity {
 
         gender= getIntent().getStringExtra("gender");
         age = getIntent().getStringExtra("age");
+        email = getIntent().getStringExtra("email");
 
         textDescrEditText = findViewById(R.id.edittext_patient_signup_password);
         buttonChatBot=findViewById(R.id.button_chatbot);
@@ -147,6 +149,7 @@ public class PatientMainActivity extends AppCompatActivity {
         if (intent!=null){
             intent.putExtra("newItem","true");
             intent.putExtra("position", tasks.size());
+            intent.putExtra("email", email);
             mLaucher.launch(intent);
 
             taskArrayAdapter.notifyDataSetChanged();
@@ -201,6 +204,7 @@ public class PatientMainActivity extends AppCompatActivity {
                     intent.putExtra("newItem", "false");
                     intent.putExtra("task", ser_task);
                     intent.putExtra("position", position);
+                    intent.putExtra("email",email);
                     mLaucher.launch(intent);
                     taskArrayAdapter.notifyDataSetChanged();
                 }
@@ -219,7 +223,12 @@ public class PatientMainActivity extends AppCompatActivity {
                     List<ToDoTask> taskFromDB = toDoTaskDao.listAll();
                     if (taskFromDB != null & taskFromDB.size()>0){
                         for (ToDoTask task : taskFromDB){
-                            tasks.add(Tools.stringToTask(task.getToDoTaskContent()));
+                            Task newTask = Tools.stringToTask(task.getToDoTaskContent());
+                            if (newTask.getUserEmail().equals(email))
+                            {
+                                tasks.add(newTask);
+                            }
+
                         }
                     }
                 }

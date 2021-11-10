@@ -124,6 +124,7 @@ public class PatientSignInActivity extends AppCompatActivity {
                             //String ser_patient = Tools.firebaseUserToString(user);
                             intent.putExtra("gender", gender);
                             intent.putExtra("age",age);
+                            intent.putExtra("email",email);
                             finish();
                             patientMainLaucher.launch(intent);
                         } else {
