@@ -16,11 +16,28 @@
             android:id="@+id/button_chatbot"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_below="@+id/addNew"
             android:layout_alignParentLeft="true"
-            android:layout_alignParentTop="true"
-            android:layout_marginLeft="83dp"
-            android:layout_marginTop="472dp"
+            android:layout_marginLeft="125dp"
+            android:layout_marginTop="20dp"
             android:text="Chat with bot" />
+
+        <Button
+            android:id="@+id/addNew"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/taskListView"
+            android:layout_alignParentLeft="true"
+            android:layout_marginLeft="111dp"
+            android:layout_marginTop="21dp"
+            android:text="Add New Reminder" />
+
+        <ListView
+            android:id="@+id/taskListView"
+            android:layout_width="match_parent"
+            android:layout_height="472dp"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true" />
 
     </RelativeLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
