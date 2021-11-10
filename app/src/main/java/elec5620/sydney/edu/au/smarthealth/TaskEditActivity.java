@@ -30,6 +30,7 @@ public class TaskEditActivity extends AppCompatActivity {
     TextView etTime;
     Date date;
     String newItemChecker;
+    String email="";
     Button buttonTimePick;
     Button buttonSave;
     Button buttonCancel;
@@ -55,6 +56,7 @@ public class TaskEditActivity extends AppCompatActivity {
         Check whether this activity is start for adding new task
         or update an existing task
          */
+        email = getIntent().getStringExtra("email");
         if (newItemChecker.compareTo("false") == 0) {
             Task task = Tools.stringToTask(getIntent().getStringExtra("task"));
             date = task.getDueDate();
@@ -88,7 +90,7 @@ public class TaskEditActivity extends AppCompatActivity {
         etItem = (EditText) findViewById(R.id.editTextTitle);
         etTime = (TextView) findViewById(R.id.editTextTime);
         String title = etItem.getText().toString();
-        Task task = new Task(title, date);
+        Task task = new Task(title, date, email);
         String ser_task = Tools.taskToString(task);
 
         // Prepare data intent for sending it back
