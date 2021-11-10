@@ -20,6 +20,23 @@
         <entry key="..\:/Github/SmartHealth/app/src/main/res/layout/test.xml" value="0.4624094202898551" />
         <entry key="..\:/Github/SmartHealth/app/src/main/res/layout/user_msg.xml" value="0.40942028985507245" />
         <entry key="..\:/SmartHealth/app/src/main/res/layout/activity_main.xml" value="0.13451086956521738" />
+        <entry key="..\:/workspaces/androidProject/SmartHealth/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.1" />
+        <entry key="..\:/workspaces/androidProject/SmartHealth/app/src/main/res/drawable/edittext_border.xml" value="0.1" />
+        <entry key="..\:/workspaces/androidProject/SmartHealth/app/src/main/res/drawable/ic_launcher_background.xml" value="0.1" />
+        <entry key="..\:/workspaces/androidProject/SmartHealth/app/src/main/res/drawable/list_view_selector.xml" value="0.1" />
+        <entry key="..\:/workspaces/androidProject/SmartHealth/app/src/main/res/drawable/listviewsimple_bg_selector.xml" value="0.1" />
+        <entry key="..\:/workspaces/androidProject/SmartHealth/app/src/main/res/layout/activity_doctor_main.xml" value="0.1" />
+        <entry key="..\:/workspaces/androidProject/SmartHealth/app/src/main/res/layout/activity_doctor_sign_in.xml" value="0.25" />
+        <entry key="..\:/workspaces/androidProject/SmartHealth/app/src/main/res/layout/activity_doctor_sign_up.xml" value="0.25" />
+        <entry key="..\:/workspaces/androidProject/SmartHealth/app/src/main/res/layout/activity_doctor_tips.xml" value="0.1" />
+        <entry key="..\:/workspaces/androidProject/SmartHealth/app/src/main/res/layout/activity_doctor_view_list.xml" value="0.1" />
+        <entry key="..\:/workspaces/androidProject/SmartHealth/app/src/main/res/layout/activity_main.xml" value="0.33" />
+        <entry key="..\:/workspaces/androidProject/SmartHealth/app/src/main/res/layout/activity_patient_main.xml" value="0.1" />
+        <entry key="..\:/workspaces/androidProject/SmartHealth/app/src/main/res/layout/activity_patient_sign_up.xml" value="0.1" />
+        <entry key="..\:/workspaces/androidProject/SmartHealth/app/src/main/res/layout/activity_view_doctor_recommend.xml" value="0.1" />
+        <entry key="..\:/workspaces/androidProject/SmartHealth/app/src/main/res/layout/patient_list_adapter.xml" value="0.21954674220963172" />
+        <entry key="..\:/workspaces/androidProject/SmartHealth/app/src/main/res/layout/recm_doctor_adapter.xml" value="0.5" />
+        <entry key="..\:/workspaces/androidProject/SmartHealth/app/src/main/res/layout/tips_enter_inter.xml" value="0.1" />
       </map>
     </option>
   </component>
@@ -28,5 +45,12 @@
   </component>
   <component name="ProjectType">
     <option name="id" value="Android" />
+  </component>
+  <component name="VisualizationToolProject">
+    <option name="state">
+      <ProjectState>
+        <option name="scale" value="0.33" />
+      </ProjectState>
+    </option>
   </component>
 </project>
