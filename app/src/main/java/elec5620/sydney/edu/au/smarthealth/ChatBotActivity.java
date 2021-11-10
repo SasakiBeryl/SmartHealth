@@ -559,7 +559,7 @@ public class ChatBotActivity extends AppCompatActivity {
                         if patient's answer is no, then back to previous activity.
                         if pastien's answer is yes, then go to doctor recommendation page.
                          */
-                        if (prob>0.3)
+                        if (prob>0.5)
                         {
                             String botResponse = "I guess you got: "+diseaseName+".";
                             ENDFLAG = true;
