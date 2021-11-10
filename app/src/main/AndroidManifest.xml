@@ -39,6 +39,13 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+
+        <activity android:name=".DoctorTipsActivity"
+            android:exported="true" ></activity>
+        <activity android:name=".DoctorViewActivity"
+            android:exported="true" ></activity>
+
     </application>
 
     <uses-permission android:name="android.permission.INTERNET" />

@@ -6,4 +6,57 @@
     android:layout_height="match_parent"
     tools:context=".DoctorMainActivity">
 
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:layout_editor_absoluteX="1dp"
+        tools:layout_editor_absoluteY="1dp">
+
+<!--        <EditText-->
+<!--            android:id="@+id/edittext_patient_signup_password"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_alignParentLeft="true"-->
+<!--            android:layout_alignParentTop="true"-->
+<!--            android:layout_marginLeft="88dp"-->
+<!--            android:layout_marginTop="260dp"-->
+<!--            android:ems="10"-->
+<!--            android:hint="Describe your situation"-->
+<!--            android:inputType="textPersonName" />-->
+
+        <Button
+            android:id="@+id/button_doctor_view_list"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginLeft="122dp"
+            android:layout_marginTop="183dp"
+            android:text="View patient list" />
+
+        <Button
+            android:id="@+id/button_doctor_provide_tips"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginLeft="98dp"
+            android:layout_marginTop="293dp"
+            android:text="Provide tips to patient" />
+<!--        <ListView-->
+<!--            android:id="@+id/list11"-->
+<!--            android:layout_width="fill_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_alignParentLeft="true"-->
+<!--            android:layout_marginTop="65dp"-->
+<!--            android:cacheColorHint="#000000"-->
+<!--            android:focusable="false"-->
+<!--            android:listSelector="293dp"-->
+<!--            android:scrollbars="vertical"-->
+<!--            android:scrollingCache="false" >-->
+<!--        </ListView>-->
+
+
+    </RelativeLayout>
+
 </androidx.constraintlayout.widget.ConstraintLayout>

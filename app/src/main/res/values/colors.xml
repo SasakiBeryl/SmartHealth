@@ -7,4 +7,6 @@
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+    <color name="color_221E90FF">#221E90FF</color><!--默认显示-->
+    <color name="transparent">#F2F2F2</color><!--点击显示-->
 </resources>
