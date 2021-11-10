@@ -23,11 +23,6 @@
             android:ems="10"
             android:hint="Email"
             android:inputType="textPersonName" />
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:layout_alignBottom="@+id/edittext_patient_signup_email"
-            android:background="@color/black" />
 
         <EditText
             android:id="@+id/edittext_patient_signup_phone"
@@ -40,11 +35,6 @@
             android:ems="10"
             android:hint="Phone Number"
             android:inputType="textPersonName" />
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:layout_alignBottom="@+id/edittext_patient_signup_phone"
-            android:background="@color/black" />
 
         <EditText
             android:id="@+id/edittext_patient_signup_password"
@@ -57,11 +47,6 @@
             android:ems="10"
             android:hint="Password"
             android:inputType="textPersonName" />
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:layout_alignBottom="@+id/edittext_patient_signup_password"
-            android:background="@color/black" />
 
         <EditText
             android:id="@+id/edittext_patient_first_name"
@@ -74,11 +59,6 @@
             android:ems="10"
             android:hint="First Name"
             android:inputType="textPersonName" />
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:layout_alignBottom="@+id/edittext_patient_first_name"
-            android:background="@color/black" />
 
         <EditText
             android:id="@+id/edittext_patient_last_name"
@@ -91,13 +71,8 @@
             android:ems="10"
             android:hint="Last Name"
             android:inputType="textPersonName" />
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:layout_alignBottom="@+id/edittext_patient_last_name"
-            android:background="@color/black" />
 
-        <TextView
+        <EditText
             android:id="@+id/edittext_patient_gender"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -107,14 +82,9 @@
             android:layout_marginTop="20dp"
             android:ems="10"
             android:hint="Gender"
-            android:textSize="17dp" />
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:layout_alignBottom="@+id/edittext_patient_gender"
-            android:background="@color/black" />
+            android:inputType="textPersonName" />
 
-        <TextView
+        <EditText
             android:id="@+id/edittext_patient_age"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -124,12 +94,7 @@
             android:layout_marginTop="31dp"
             android:ems="10"
             android:hint="Age"
-            android:textSize="17dp" />
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:layout_alignBottom="@+id/edittext_patient_age"
-            android:background="@color/black" />
+            android:inputType="textPersonName" />
 
         <Button
             android:id="@+id/button_patient_confirm"
