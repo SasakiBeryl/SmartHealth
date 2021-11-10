@@ -17,6 +17,8 @@ import android.widget.EditText;
 import android.widget.ListView;
 
 import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
@@ -74,10 +76,66 @@ public class DoctorTipsActivity extends AppCompatActivity {
             tipsDialog.setPositiveButton("Confirm", new DialogInterface.OnClickListener(){
                 @Override
                 public void onClick(DialogInterface dialog, int which) {
+
                     String tipsForPatient= tips.getText().toString();
                     createSinglePatientTips(tipsForPatient,email);
 
-                    dialog.notify();
+                    //////////////////////////////////////////////
+                    /*
+                    find the patient's document id
+                     */
+                    //////////////////////////////////////////////
+                    db.collection("patients")
+                            .get()
+                            .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+                                @Override
+                                public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                                    if (task.isSuccessful())
+                                    {
+                                        for (QueryDocumentSnapshot document : task.getResult())
+                                        {
+                                            //Log.d("fangpei", "85");
+                                            //Log.d("fangpei", document.getId() + " => " + document.getData().get("name"));
+                                            String userEmail = document.getData().get("email").toString();
+                                            //String documentId = document.getId();
+
+
+                                            if (userEmail.equals(email))
+                                            {
+                                                String documentID = document.getId();
+                                                DocumentReference washingtonRef = db.collection("patients").document(documentID);
+
+                                                washingtonRef
+                                                        .update("tips", tipsForPatient)
+                                                        .addOnSuccessListener(new OnSuccessListener<Void>() {
+                                                            @Override
+                                                            public void onSuccess(Void aVoid) {
+
+                                                            }
+                                                        })
+                                                        .addOnFailureListener(new OnFailureListener() {
+                                                            @Override
+                                                            public void onFailure(@NonNull Exception e) {
+                                                            }
+                                                        });
+                                                break;
+                                            }
+
+
+                                        }
+                                    } else {
+                                        Log.d("fangpei", "89");
+                                        Log.w("fangpei", "Error getting documents.", task.getException());
+                                    }
+                                }
+                            });
+                    ///////////////////////////////////////////////////////////////////////////////////////////////
+                    /*
+                    End of update
+                     */
+                    ///////////////////////////////////////////////////////////////////////////////////////////////
+                    //adaptorPatient.notifyDataSetChanged();
+                    //dialog.notify();
                 }
             });
             tipsDialog.setNegativeButton("Cancel", new DialogInterface.OnClickListener(){
@@ -115,8 +173,9 @@ public class DoctorTipsActivity extends AppCompatActivity {
                                 String gender = document.getData().get("gender").toString();
                                 String patientPhoneNumber = document.getData().get("phone_number").toString();
                                 String patientEmail = document.getData().get("email").toString();
+                                String patientTips = document.getData().get("tips").toString();
 
-                                Patient patient = new Patient(patientFirstName, patientLastName, patientEmail, patientPhoneNumber, age, gender);
+                                Patient patient = new Patient(patientFirstName, patientLastName, patientEmail, patientPhoneNumber, age, gender,patientTips);
                                 patients.add(patient);
 
                             }

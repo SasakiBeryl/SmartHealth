@@ -85,6 +85,7 @@ public class PatientSignInActivity extends AppCompatActivity {
                                 //Log.d("fangpei", "85");
                                 //Log.d("fangpei", document.getId() + " => " + document.getData().get("name"));
                                 String userEmail = document.getData().get("email").toString();
+                                //String documentId = document.getId();
 
 
                                 if (userEmail.equals(email))

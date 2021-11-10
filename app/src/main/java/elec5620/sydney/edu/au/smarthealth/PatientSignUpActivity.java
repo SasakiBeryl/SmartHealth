@@ -115,6 +115,7 @@ public class PatientSignUpActivity extends AppCompatActivity {
                             patient.put("last_name", lastName);
                             patient.put("gender", gender);
                             patient.put("age", age);
+                            patient.put("tips","");
 
 
 // Add a new document with a generated ID

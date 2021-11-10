@@ -71,11 +71,17 @@ public class DoctorViewActivity extends AppCompatActivity {
             String gender = item.getGender();
             String age = item.getAge();
             String phoneNumber = item.getPhoneNumber();
+            String tips = item.getTips();
+            if (tips.equals(null))
+            {
+                tips = "";
+            }
             String detailsContent = "Name: " + firstName + " " +lastName+ "\n"
                     + "age: "+ age +"\n"
                     + "gender: " + gender +"\n"
                     + "email: " + email + "\n"
-                    + "PhoneNumber: " + phoneNumber;
+                    + "PhoneNumber: " + phoneNumber + "\n"
+                    + "Tips:" + tips;
             normalDialog.setTitle("Patient Details");
             normalDialog.setMessage(detailsContent);
             normalDialog.setPositiveButton("Close", (dialog, which) -> {});
@@ -101,8 +107,9 @@ public class DoctorViewActivity extends AppCompatActivity {
                                 String gender = document.getData().get("gender").toString();
                                 String patientPhoneNumber = document.getData().get("phone_number").toString();
                                 String patientEmail = document.getData().get("email").toString();
+                                String patientTips = document.getData().get("tips").toString();
 
-                                Patient patient = new Patient(patientFirstName, patientLastName, patientEmail, patientPhoneNumber, age, gender);
+                                Patient patient = new Patient(patientFirstName, patientLastName, patientEmail, patientPhoneNumber, age, gender,patientTips);
                                 patients.add(patient);
 
                             }

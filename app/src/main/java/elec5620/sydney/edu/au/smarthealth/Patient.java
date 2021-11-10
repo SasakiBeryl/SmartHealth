@@ -3,7 +3,7 @@ import java.io.Serializable;
 
 public class Patient implements Serializable {
     public Patient (String firstName, String lastName,
-                     String email, String phoneNumber, String age, String gender){
+                     String email, String phoneNumber, String age, String gender, String tips){
 
         this.firstName = firstName;
         this.lastName = lastName;
@@ -11,6 +11,7 @@ public class Patient implements Serializable {
         this.phoneNumber = phoneNumber;
         this.age = age;
         this.gender = gender;
+        this.tips = tips;
 
     }
 
@@ -20,6 +21,16 @@ public class Patient implements Serializable {
     String lastName;
     String age;
     String gender;
+
+    public String getTips() {
+        return tips;
+    }
+
+    public void setTips(String tips) {
+        this.tips = tips;
+    }
+
+    String tips;
 
     public String getFirstName() {
         return firstName;
