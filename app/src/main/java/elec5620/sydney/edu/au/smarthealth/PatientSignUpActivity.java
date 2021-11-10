@@ -6,11 +6,13 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -22,7 +24,9 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.wx.wheelview.widget.WheelViewDialog;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -33,8 +37,8 @@ public class PatientSignUpActivity extends AppCompatActivity {
     EditText editTextFirstName;
     EditText editTextLastName;
     EditText editTextPhoneNumber;
-    EditText editTextPatientGender;
-    EditText editTextPatientAge;
+    TextView editTextPatientGender;
+    TextView editTextPatientAge;
 
     Button buttonDoctorCreatAccount;
 
@@ -45,6 +49,9 @@ public class PatientSignUpActivity extends AppCompatActivity {
     String lastName;
     String gender;
     String age;
+
+    ArrayList<String> arrayListGender= new ArrayList<>();
+    ArrayList<String> arrayListAge= new ArrayList<>();
 
     FirebaseFirestore db;
     private FirebaseAuth mAuth;
@@ -71,7 +78,16 @@ public class PatientSignUpActivity extends AppCompatActivity {
         editTextFirstName = findViewById(R.id.edittext_patient_first_name);
         editTextLastName = findViewById(R.id.edittext_patient_last_name);
         editTextPatientGender = findViewById(R.id.edittext_patient_gender);
+        editTextPatientGender.setOnClickListener(this::onGenderClick);
         editTextPatientAge = findViewById(R.id.edittext_patient_age);
+        editTextPatientAge.setOnClickListener(this::onAgeClick);
+
+        arrayListGender.add("Male");
+        arrayListGender.add("Female");
+        for (int i=0;i<150;i++)
+        {
+            arrayListAge.add(Integer.toString(i));
+        }
 
         buttonDoctorCreatAccount = findViewById(R.id.button_patient_confirm);
         buttonDoctorCreatAccount.setOnClickListener(this::onDoctorCreateClick);
@@ -152,6 +168,44 @@ public class PatientSignUpActivity extends AppCompatActivity {
 
 
 
+
+    }
+
+    public void onGenderClick(View view)
+    {
+        WheelViewDialog dialog = new WheelViewDialog(this);
+        dialog.setTitle("Gender")
+                .setItems(arrayListGender)
+                .setDialogStyle(Color.parseColor("#6699ff"))
+                .setCount(3)
+                .setLoop(true)
+                .setButtonText("Confirm")
+                .setOnDialogItemClickListener(new WheelViewDialog.OnDialogItemClickListener() {
+                    @Override
+                    public void onItemClick(int position, String s) {
+                        gender = s;
+                        editTextPatientGender.setText(gender);
+                    }
+                }).show();
+
+    }
+
+    public void onAgeClick(View view)
+    {
+        WheelViewDialog dialog = new WheelViewDialog(this);
+        dialog.setTitle("Age")
+                .setItems(arrayListAge)
+                .setDialogStyle(Color.parseColor("#6699ff"))
+                .setCount(3)
+                .setLoop(true)
+                .setButtonText("Confirm")
+                .setOnDialogItemClickListener(new WheelViewDialog.OnDialogItemClickListener() {
+                    @Override
+                    public void onItemClick(int position, String s) {
+                        age = s;
+                        editTextPatientAge.setText(age);
+                    }
+                }).show();
 
     }
 }
